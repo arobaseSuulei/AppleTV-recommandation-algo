@@ -1,39 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Navbar from "./components/Navbar.jsx";
+import UpNav from "./components/UpNav.jsx";
+import Shows from "./components/Shows.jsx";
 
-function App() {
-  const [count, setCount] = useState(0)
 
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 flex items-center justify-center">
-      <div className="text-center">
-        <div className="flex justify-center space-x-8 mb-8">
-          <a href="https://vite.dev" target="_blank" className="hover:scale-110 transition-transform">
-            <img src={viteLogo} className="h-24 w-24" alt="Vite logo" />
-          </a>
-          <a href="https://react.dev" target="_blank" className="hover:scale-110 transition-transform">
-            <img src={reactLogo} className="h-24 w-24 animate-spin-slow" alt="React logo" />
-          </a>
-        </div>
-        <h1 className="text-6xl font-bold text-white mb-8">AppleTV + React</h1>
-        <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 mb-8">
-          <button 
-            onClick={() => setCount((count) => count + 1)}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors mb-4"
-          >
-            Count is {count}
-          </button>
-          <p className="text-gray-200">
-            Edit <code className="bg-gray-800 px-2 py-1 rounded">src/App.jsx</code> and save to test HMR
-          </p>
-        </div>
-        <p className="text-gray-300">
-          Click on the Vite and React logos to learn more
-        </p>
-      </div>
-    </div>
-  )
-}
 
-export default App
+      <div className="relative h-screen w-screen bg-[url('https://images.unsplash.com/photo-1551516594-56cb78394645?q=80&w=2630&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center">
+
+
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+
+
+
+        <div className="relative z-10 flex gap-6  items-center justify-center h-full px-4">
+          <Navbar/>
+          <div className="w-[990px] h-[660px] bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl text-white p-4 px-12  ">
+
+            <UpNav/>
+
+
+
+            <Shows/>
+
+
+
+
+
+          </div>
+
+
+
+        </div>
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+  );
+}
