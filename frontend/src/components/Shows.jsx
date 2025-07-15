@@ -42,32 +42,38 @@ export default function Shows() {
     console.log(shows);
 
     return (
-       <div className={'w-full'}>
-           <Swiper
-               modules={[Navigation, Pagination]}
-               spaceBetween={16}
-               slidesPerView={3}
-               navigation
-               pagination={{ clickable: true }}
-               loop={true}
-               className={'w-full h-64'}
-           >
-               {shows.map((show, index) => (
-                   <SwiperSlide key={index}>
-                       <div className={'w-full h-56 flex flex-col gap-1'}>
+       <div className={''}>
+           <div className={'w-full border-b border-b mb-2 pb-2'}>
+               <Swiper
+                   modules={[Navigation, Pagination]}
+                   spaceBetween={16}
+                   slidesPerView={3}
+                   navigation
+                   pagination={{ clickable: true }}
+                   loop={true}
+                   className={'w-full h-64'}
+               >
+                   {shows.map((show, index) => (
+                       <SwiperSlide key={index}>
+                           <div className={'w-full h-56 flex flex-col gap-1'}>
                            <span className={'w-full h-36'}>
                                <img className={'rounded-xl object-cover w-full h-full'} src={show.image_URL || 'https://is1-ssl.mzstatic.com/image/thumb/RcgPZ5VHFSmr43fk1fjuMw/1200x675.jpg'} alt={show.title} />
                            </span>
-                           <span>
+
+                               <span className={'flex flex-col gap-1'}>
                                <p>{show.title}</p>
                                <p className={'text-xs'}>
-                                   Movie - 110 min
+                                   {show.type} - {show.runtime} min
                                </p>
                            </span>
-                       </div>
-                   </SwiperSlide>
-               ))}
-           </Swiper>
+                           </div>
+                       </SwiperSlide>
+                   ))}
+               </Swiper>
+           </div>
+
+
+           <p>Similaires</p>
        </div>
     )
 }
