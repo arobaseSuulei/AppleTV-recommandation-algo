@@ -1,7 +1,10 @@
 import { createClient } from "@supabase/supabase-js";
 import {useEffect, useState} from "react";
-
-
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 
 const supabase = createClient(
@@ -39,11 +42,32 @@ export default function Shows() {
     console.log(shows);
 
     return (
-       <div className={'flex items-center gap-2'}>
-
-
-           1
-
+       <div className={'w-full'}>
+           <Swiper
+               modules={[Navigation, Pagination]}
+               spaceBetween={16}
+               slidesPerView={3}
+               navigation
+               pagination={{ clickable: true }}
+               loop={true}
+               className={'w-full h-64'}
+           >
+               {shows.map((show, index) => (
+                   <SwiperSlide key={index}>
+                       <div className={'w-full h-56 flex flex-col gap-1'}>
+                           <span className={'w-full h-36'}>
+                               <img className={'rounded-xl object-cover w-full h-full'} src={show.image_URL || 'https://is1-ssl.mzstatic.com/image/thumb/RcgPZ5VHFSmr43fk1fjuMw/1200x675.jpg'} alt={show.title} />
+                           </span>
+                           <span>
+                               <p>{show.title}</p>
+                               <p className={'text-xs'}>
+                                   Movie - 110 min
+                               </p>
+                           </span>
+                       </div>
+                   </SwiperSlide>
+               ))}
+           </Swiper>
        </div>
     )
 }
