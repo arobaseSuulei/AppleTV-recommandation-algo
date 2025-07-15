@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import {useEffect, useState} from "react";
 
 
 
@@ -9,10 +10,39 @@ const supabase = createClient(
 );
 
 
-export default function Shows() {
-    return (
-       <div className={'grid grid-cols-3 gap-2'}>
 
+
+
+
+
+export default function Shows() {
+
+
+
+    const [shows, setShows] = useState([]);
+
+    useEffect(() => {
+        getShows();
+    },[])
+
+
+    async function getShows() {
+        try{
+            const {data}=await supabase.from("AppleTV").select("*").neq("image_URL",null);
+            setShows(data);
+
+        }catch(error){
+            console.log("error", error);
+        }
+    }
+
+    console.log(shows);
+
+    return (
+       <div className={'flex items-center gap-2'}>
+
+
+           1
 
        </div>
     )
