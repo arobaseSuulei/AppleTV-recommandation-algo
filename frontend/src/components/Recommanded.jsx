@@ -11,7 +11,7 @@ const supabase = createClient(
 
 
 
-export default function Recommanded(){
+export default function Recommanded({showCluster}){
 
 
 
@@ -20,12 +20,12 @@ export default function Recommanded(){
 
     useEffect(()=>{
         getRecommanded();
-    },[])
+    },[showCluster]) //on passe showcluster en deps pour reactualiser le composant au changement de showCluster
 
 
     async function getRecommanded() {
         try{
-            const {data}=await supabase.from("AppleTV").select("*").neq("image_URL",null).limit(8);
+            const {data}=await supabase.from("AppleTV").select("*").eq("clusters",showCluster).neq("image_URL",null).limit(8).order("imdb_id");
             setRecommanded(data);
 
         }catch(error){
@@ -34,6 +34,9 @@ export default function Recommanded(){
     }
 
 
+
+    console.log(showCluster)
+    console.log('showCluster:', showCluster, typeof showCluster);
 
 
 
@@ -52,7 +55,7 @@ export default function Recommanded(){
                         <span className={'flex flex-col gap-1'}>
                                <p className={'text-xs'}>{reco.title}</p>
                                <p className={'text-xs'}>
-                                   110 min
+                                   {reco.runtime} min
                                </p>
                            </span>
                     </div>

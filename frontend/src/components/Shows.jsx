@@ -5,6 +5,7 @@ import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import Recommanded from "./Recommanded.jsx";
 
 
 const supabase = createClient(
@@ -18,11 +19,15 @@ const supabase = createClient(
 
 
 
-export default function Shows() {
+export default function Shows(props) {
 
 
 
     const [shows, setShows] = useState([]);
+    const [selected, setSelected] = useState(1);
+
+
+
 
     useEffect(() => {
         getShows();
@@ -31,7 +36,7 @@ export default function Shows() {
 
     async function getShows() {
         try{
-            const {data}=await supabase.from("AppleTV").select("*").neq("image_URL",null);
+            const {data}=await supabase.from("AppleTV").select("*").neq("image_URL",null).order("imdb_id");
             setShows(data);
 
         }catch(error){
@@ -55,9 +60,11 @@ export default function Shows() {
                >
                    {shows.map((show, index) => (
                        <SwiperSlide key={index}>
-                           <div className={'w-full h-56 flex flex-col gap-1'}>
+                           <div
+                               onClick={()=>setSelected(show.clusters)}
+                                className={'w-full h-56 flex flex-col gap-1'}>
                            <span className={'w-full h-36'}>
-                               <img className={'rounded-xl object-cover w-full h-full'} src={show.image_URL || 'https://is1-ssl.mzstatic.com/image/thumb/RcgPZ5VHFSmr43fk1fjuMw/1200x675.jpg'} alt={show.title} />
+                               <img className={'rounded-xl active:border hover:border hover:border-red-500 active:border-red-500 object-cover w-full h-full'} src={show.image_URL || 'https://is1-ssl.mzstatic.com/image/thumb/RcgPZ5VHFSmr43fk1fjuMw/1200x675.jpg'} alt={show.title} />
                            </span>
 
                                <span className={'flex flex-col gap-1'}>
@@ -74,6 +81,9 @@ export default function Shows() {
 
 
            <p>Similaires</p>
+
+           <Recommanded showCluster={selected} />
+
        </div>
     )
 }
