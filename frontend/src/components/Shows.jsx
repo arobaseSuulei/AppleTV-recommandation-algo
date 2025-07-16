@@ -43,7 +43,7 @@ export default function Shows() {
 
     return (
        <div className={''}>
-           <div className={'w-full border-b border-b mb-2 pb-2'}>
+           <div className={'w-full  border-b mb-2 pb-2'}>
                <Swiper
                    modules={[Navigation, Pagination]}
                    spaceBetween={16}

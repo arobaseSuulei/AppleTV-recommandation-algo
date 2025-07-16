@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar.jsx";
 import UpNav from "./components/UpNav.jsx";
 import Shows from "./components/Shows.jsx";
+import Recommanded from "./components/Recommanded.jsx";
 
 
 export default function App() {
@@ -20,8 +21,8 @@ export default function App() {
             <UpNav/>
 
 
-
-            <Shows/>
+              <Shows/>
+              <Recommanded/>
 
 
 
