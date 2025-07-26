@@ -1,22 +1,32 @@
-# AppleTV Frontend
+# AppleTV Recommadation
 
-Ce projet est le frontend d'une application de type Apple TV, développé en React avec Vite et TailwindCSS. Il inclut un carousel dynamique pour afficher les shows récupérés depuis Supabase.
+This project is an Apple TV-style application, developed using React with Vite and TailwindCSS, Supabase for storing and manage data, Kmeans clustering for the AI algorithm model. It features a dynamic carousel to display shows fetched from Supabase.
 
-## Fonctionnalités principales
-- Affichage des shows sous forme de carousel slider (Swiper)
-- Récupération dynamique des données depuis Supabase
-- UI moderne avec TailwindCSS
-- Navigation React Router
+## Key Features
+###frontend
+- Display shows in a carousel slider (Swiper)
+- Dynamically fetch data from Supabase
+- Modern UI with TailwindCSS
+
+  ###backend
+  - Storing data
+  - Manage data
+ 
+  ###AI algorithms
+  - cleaning the dataset
+  - Applying the Kmeans algorithms into the dataset
+
+
 
 ## Installation
 
-1. **Cloner le dépôt**
+1. **Clone the repository**
    ```bash
    git clone <repo-url>
    cd AppleTV/frontend
    ```
 
-2. **Installer les dépendances**
+2. **Install dependencies**
    ```bash
    npm install
    ```
@@ -25,11 +35,11 @@ Ce projet est le frontend d'une application de type Apple TV, développé en Rea
    ```bash
    npm run dev
    ```
-   L'application sera accessible sur `http://localhost:5173` (ou le port affiché dans le terminal).
+
 
 ## Structure des dossiers
 
-- `src/`
+- `frontend/src/` : frontend application
   - `App.jsx` : Composant principal
   - `components/`
     - `Navbar.jsx` : Barre de navigation latérale
@@ -39,11 +49,13 @@ Ce projet est le frontend d'une application de type Apple TV, développé en Rea
   - `main.jsx` : Point d'entrée React
   - `index.css` : Styles globaux (inclut Tailwind et custom Swiper)
 
+  - `backend` : backend application, notebooks, and dataset
+
 ## Personnalisation du carousel
 
-Le carousel utilise la librairie [Swiper](https://swiperjs.com/react). Pour modifier le style des flèches ou des points :
+The carousel use the swiper library [Swiper](https://swiperjs.com/react) :
 
-Dans `src/index.css` :
+Inside `src/index.css` :
 ```css
 .swiper-button-next,
 .swiper-button-prev {
@@ -59,8 +71,6 @@ Dans `src/index.css` :
 }
 ```
 
-Pour changer le nombre de slides visibles :
-Dans `Shows.jsx`, modifiez la prop `slidesPerView` du composant Swiper.
 
 ## Dépendances principales
 - React
@@ -68,9 +78,12 @@ Dans `Shows.jsx`, modifiez la prop `slidesPerView` du composant Swiper.
 - TailwindCSS
 - Swiper (carousel)
 - Supabase (API)
+- pandas
+- SentenceTransformer
+- Jupyter notebooks
 
 ## Auteur
-- SuleyJS
+- Souleymane Diallo
 
 ---
-Pour toute question ou amélioration, ouvrez une issue ou contactez le mainteneur.
+
