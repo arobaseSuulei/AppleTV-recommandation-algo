@@ -1,20 +1,11 @@
-# AppleTV Recommadation
+# Apple TV+ recommandation shows algorithms by using a clustering
 
-This project is an Apple TV-style application, developed using React with Vite and TailwindCSS, Supabase for storing and manage data, Kmeans clustering for the AI algorithm model. It features a dynamic carousel to display shows fetched from Supabase.
+## Abstract
+Clustering is a powerful machine learning technique, often limited by the need to specify tne number of cluster k, however defining the number of cluster can give us the powerful tool of classifying our dataset, from a large dataset to a small. Our Apple TV+ machine learning algorithms will be able to recommend a similar shows to a user by chosing one
 
-## Key Features
-###frontend
-- Display shows in a carousel slider (Swiper)
-- Dynamically fetch data from Supabase
-- Modern UI with TailwindCSS
 
-  ###backend
-  - Storing data
-  - Manage data
- 
-  ###AI algorithms
-  - cleaning the dataset
-  - Applying the Kmeans algorithms into the dataset
+## Clustering manipulation
+Clustering is a well data visualization machine learning. First
 
 
 
