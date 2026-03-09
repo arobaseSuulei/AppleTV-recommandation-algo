@@ -15,8 +15,8 @@ Now some of the columns had nullable, so we needed to manage that
 That's the most popular way to manage the nullable values, here we did that for the column "seasons", now all the seasons who had nullable values turned to 0
 <img width="662" height="389" alt="image" src="https://github.com/user-attachments/assets/1bc657b7-5b7d-430d-99f7-084ec33c8a9f" />
 
-### a) Filling the nullable with the most frequent value
-Some columns have a string value, as the age certification. For managing their nullable values we filled the gap by the most frequent value
+### b) Filling the nullable with the most frequent value
+We should know that on k-means clustering algoritmn, some columns are more important that by how we can use our model, For example here the columns age certification is a key factor for classifying all the shows on a similar pattern. For managing their nullable values we filled the gap by the most frequent value
 <img width="570" height="107" alt="image" src="https://github.com/user-attachments/assets/d544a542-d1e5-4188-91c3-f109c736c15c" />
 
 
