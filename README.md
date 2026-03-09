@@ -1,11 +1,23 @@
-# Apple TV+ recommandation shows algorithms by using a clustering
+# Apple TV+ recommandation (APR) shows algorithms by using a clustering
 
 ## Abstract
 Clustering is a powerful machine learning technique, often limited by the need to specify tne number of cluster k, however defining the number of cluster can give us the powerful tool of classifying our dataset, from a large dataset to a small. Our Apple TV+ machine learning algorithms will be able to recommend a similar shows to a user by chosing one
 
 
-## Clustering manipulation
-Clustering is a well data visualization machine learning. First
+## Dataset and cleaning
+Clustering is a well data visualization machine learning. What we really for a machine learning based model is Data, on APR who used a dataset from Apple TV+ official shows with our columns are
+<img width="1218" height="202" alt="image" src="https://github.com/user-attachments/assets/3b6e89db-9afe-4889-b712-af3de15c577e" />
+
+Now some of the columns had nullable, so we needed to manage that
+<img width="618" height="329" alt="image" src="https://github.com/user-attachments/assets/ab87489e-4d84-4f22-8fa9-383605e19afa" />
+
+### a) Filling the nullable with a 0 value
+That's the most popular way to manage the nullable values, here we did that for the column "seasons", now all the seasons who had nullable values turned to 0
+<img width="662" height="389" alt="image" src="https://github.com/user-attachments/assets/1bc657b7-5b7d-430d-99f7-084ec33c8a9f" />
+
+### a) Filling the nullable with the most frequent value
+Some columns have a string value, as the age certification. For managing their nullable values we filled the gap by the most frequent value
+<img width="570" height="107" alt="image" src="https://github.com/user-attachments/assets/d544a542-d1e5-4188-91c3-f109c736c15c" />
 
 
 
